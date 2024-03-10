@@ -3,6 +3,13 @@ import { setupCounter } from './counter.ts'
 import { age, name } from './bases/01-types.ts'
 import { pokemonId, personas} from './bases/02-objects.ts'
 import { poke, poke2 } from './bases/03-clases.ts'
+import { charmander } from './bases/06-decorators2.ts'
+//import { charmander } from './bases/05-decorators.ts'
+//import { charmander } from './bases/04-injections.ts'
+
+//charmander.getMoves();
+charmander.speak();
+charmander.speak2();
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -21,6 +28,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </p>
     <p>
       ${personas[1].name}
+    </p>
+    <p>
+
     </p>
   </div>
 `

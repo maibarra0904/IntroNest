@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PokeapiResponse } from '../interfaces/pokeapi-response.interface';
+import { Move, PokeapiResponse } from '../interfaces/pokeapi-response.interface';
 
 //Forma mas larga de representar las clases
 export class Pokemon {
@@ -37,9 +37,10 @@ export class PokeClass {
         console.log(`${this.id} es el ID`)
     }
 
-    async getMoves() {
-        const resp = await axios.get<PokeapiResponse>('https://pokeapi.co/api/v2/pokemon/4')
-        console.log(resp.data.moves[0].move)
+    async getMoves(): Promise<Move[]> {
+        const {data} = await axios.get<PokeapiResponse>('https://pokeapi.co/api/v2/pokemon/4')
+        console.log(data.moves)
+        return data.moves
     }
 
 }
@@ -52,6 +53,8 @@ export const poke3 = new PokeClass(4, 'Getter')
 
 console.log(poke3)
 
+console.log('hola')
+
 poke3.scream()
 
-console.log(poke3.getMoves())
+poke3.getMoves()
